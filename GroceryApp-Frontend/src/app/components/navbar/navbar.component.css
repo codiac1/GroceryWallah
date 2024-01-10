@@ -1,0 +1,11 @@
+.nav-button{
+    margin-right: 4px;
+}
+
+.navbar-text {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  

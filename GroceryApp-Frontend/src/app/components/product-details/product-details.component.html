@@ -1,0 +1,18 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.imageLink" alt="Product Image">
+  </div>
+  <div class="product-info">
+    <div class="product-details">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-price">Price: {{ product.price }}</p>
+      <div class="quantity-buttons">
+        <button class="quantity-button" (click)="decreaseQuantity()">-</button>
+        <input id= "num" type="number" [(ngModel)]="quantity" class="quantity-input">
+        <button class="quantity-button" (click)="increaseQuantity()">+</button>
+      </div>
+    </div>
+    <p class="product-description">{{ product.description }}</p>
+    <button class="add-to-cart-button" (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>

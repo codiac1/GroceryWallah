@@ -1,0 +1,51 @@
+<div class="container">
+
+    <h1>My Orders</h1>
+  
+    <table class="table table-striped">
+  
+      <thead>
+  
+        <tr>
+  
+          <th>Order ID</th>
+  
+          <th>Product Image</th>
+  
+          <th>Product Name</th>
+  
+          <th>Order Date</th>
+  
+          <th>Quantity</th>
+  
+        </tr>
+  
+      </thead>
+  
+      <tbody>
+  
+        <tr *ngFor="let order of orders">
+  
+          <td>{{ order.orderId }}</td>
+  
+          <td><img [src]="order.productImage" alt="{{ order.productImage }}" width="50"></td>
+  
+          <td>{{ order.productName }}</td>
+  
+          <td>{{ order.date}}</td>
+  
+          <td>{{ order.quantity }}</td>
+  
+        </tr>
+  
+      </tbody>
+  
+      <div *ngIf="orders.length == 0">
+  
+          No order placed
+  
+      </div>
+  
+    </table>
+  
+  </div>

@@ -1,0 +1,35 @@
+<div class="text-center">
+  <h2>Cart</h2>
+</div>
+
+<div class="cart-items" *ngIf="cartProducts.length > 0; else emptyCart">
+  <div *ngFor="let item of cartProducts" class="cart-item">
+    <div class="item-details">
+      <div class="item-image">
+        <img [src]="item.imageLink" alt="Product Image" class="img-thumbnail">
+      </div>
+      <div class="item-info">
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.description }}</p>
+        <p>Price: {{ item.price }}</p>
+      </div>
+    </div>
+    <div class="item-actions">
+      <div class="quantity">
+        <label>Quantity:</label>
+        <div class="quantity-control">
+          <button class="btn btn-sm btn-secondary" (click)="updateQuantity(item.productId, item.quantity - 1)">-</button>
+     <input id = "numQty" type="number" class="form-control" [(ngModel)]="item.quantity" (input)="updateQuantity(item.productId, item.quantity)">
+                     
+          <button class="btn btn-sm btn-secondary" (click)="updateQuantity(item.productId, item.quantity + 1)">+</button>
+        </div>
+      </div>
+      <button class="btn btn-danger" (click)="removeFromCart(item.productId)">Remove</button>
+    </div>
+  </div>
+  <button (click)="placeOrder()" class="btn btn-primary checkout-button">Checkout</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
